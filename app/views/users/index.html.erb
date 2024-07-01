@@ -2,6 +2,9 @@
 <% @users.each do |user| %>
     <p> <%= user.name %></p> 
     <p> <%= user.role %></p>
+    <%= link_to 'Create Customer', new_user_customer_path(user) %>
     </br>
 <% end %>
-
+</br>
+</br>
+<p><%= link_to "Create User for #{@company.name}", new_company_user_path(@company) %></p>

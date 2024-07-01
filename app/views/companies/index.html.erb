@@ -1,4 +1,6 @@
 
 <% @companies.each do |company| %>
     <p> <%= company.name %></p>
+    <p><%= company.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
+    <p><%= link_to 'Get Details', company_path(company) %></p>
 <% end %>

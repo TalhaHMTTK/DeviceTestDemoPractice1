@@ -1,5 +1,22 @@
-<h1>This is Company Show page</h1>
+<div class="container">
+  <h1 class="display-4 my-4">Company Show Page</h1>
 
-<p>Company Name is <%= @company.name %> </p>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4 class="card-title">Company Name: <%= @company.name %></h4>
+      <h5 class="card-subtitle mb-3">Users of <%= @company.name %> are listed below:</h5>
+      
+      <ul class="list-group">
+        <% @users.each do |user| %>
+          <li class="list-group-item">
+            <p class="mb-1"><strong>Name:</strong> <%= user.name %></p>
+            <p class="mb-1"><strong>Role:</strong> <%= user.role %></p>
+            <p><%= link_to "Customer Details of #{user.name}", user_customers_path(user), class: 'btn btn-primary btn-sm' %></p>
+          </li>
+        <% end %>
+      </ul>
 
-<%= link_to 'Create User', new_company_user_path(@company) %>
+      <%= link_to 'Create User', new_company_user_path(@company), class: 'btn btn-success mt-4' %>
+    </div>
+  </div>
+</div>

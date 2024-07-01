@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
 
     def show
         @company = Company.find(params[:id])
+        @users = User.where(company_id: @company.id)
     end
     
     def new 

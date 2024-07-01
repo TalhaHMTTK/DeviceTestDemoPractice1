@@ -1,0 +1,14 @@
+<h1>Customer creation page </h1>
+
+
+<%= form_with(model: [@user, @customer], local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <%= form.hidden_field :user_id, value: @user.id %>
+
+<%= form.submit%>
+<% end %>
