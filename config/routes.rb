@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :companies do
-    resources :users
+  resources :companies, shallow: true do
+    resources :users, shallow: true
+  end
+
+  resources :users, only: [] do
+    resources :customers, shallow: true
   end
 
 end
