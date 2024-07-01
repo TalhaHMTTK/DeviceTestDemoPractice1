@@ -1,6 +1,15 @@
-
-<% @companies.each do |company| %>
-    <p> <%= company.name %></p>
-    <p><%= company.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
-    <p><%= link_to 'Get Details', company_path(company) %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @companies.each do |company| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= company.name %></h5>
+            <p class="card-text"><%= company.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
+            <%= link_to 'Get Details', company_path(company), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
